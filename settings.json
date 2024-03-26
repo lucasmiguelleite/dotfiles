@@ -1,0 +1,85 @@
+{
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.quietSync": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "workbench.iconTheme": "Monokai Classic Icons",
+    "vim.insertModeKeyBindings": [
+
+        //Change <Esc> to jj 
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }  
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        //Adding an empty line below, above and below with insert
+        {
+        "before": ["o","p"],
+        "after": ["o", "<Esc>","k"]
+        },
+        {
+        "before": ["o","i"],
+        "after": ["o", "<Esc>","j"]
+        },
+        {
+        "before": ["o","o"],
+        "after": ["A"]
+        },
+
+        //Create a tab
+        {
+        "before": ["t","e"],
+        "commands": [":tabe"]
+        },
+
+        //Navigate between buffers
+        {
+        "before": ["t","y"],
+        "commands": [":bn"]
+        },
+        {
+        "before": ["t","r"],
+        "commands": [":bp"]
+        },
+
+        //Delete a buffer
+        {
+        "before": ["t", "d"],
+        "commands": [":bd"]
+        },
+
+        //Create splits
+        {
+        "before": ["t","h"],
+        "commands": [":split"]
+        },
+        {
+        "before": ["t","v"],
+        "commands": [":vsplit"]
+        },
+       
+        //Close splits and others
+        {
+        "before": ["t", "t"],
+        "commands": [":q"]
+        },
+       
+        //Call command shortcut
+        {
+        "before": ["t", "c"],
+        "commands": [":!"]
+        }
+  ],
+  "vim.leader": "<space>",
+  "vim.timeout": 500,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+    "redhat.telemetry.enabled": true,
+    "workbench.colorTheme": "Bearded Theme HC Brewing Storm"
+}
