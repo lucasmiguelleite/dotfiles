@@ -9,9 +9,13 @@
     "workbench.iconTheme": "Monokai Classic Icons",
     "vim.insertModeKeyBindings": [
 
-        //Change <Esc> to jj 
+        //Change <Esc> to jj and JJ
         {
             "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }  
+        {
+            "before": ["J", "J"],
             "after": ["<Esc>"]
         }  
     ],
