@@ -24,7 +24,7 @@ lvim.keys.normal_mode["td"] = ":bd<CR>"
 lvim.keys.normal_mode["th"] = ":split<CR>"
 lvim.keys.normal_mode["tv"] = ":vsplit<CR>"
 
--- Close splits and others
+-- Close split and quit file
 lvim.keys.normal_mode["tt"] = ":q<CR>"
 
 -- Call command shortcut
@@ -32,7 +32,12 @@ lvim.keys.normal_mode["tc"] = ":!"
 
 -- Change <Esc> to jj
 lvim.keys.insert_mode["jj"] = "<Esc>"
+lvim.keys.insert_mode["JJ"] = "<Esc>"
 
+-- Save the file
+lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
+lvim.keys.normal_mode["<C-S>"] = ":w<CR>"
+lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<CR>"
+lvim.keys.insert_mode["<C-S>"] = "<Esc>:w<CR>"
 
-
-vim.opt.timeoutlen = 500
+-- vim.opt.timeoutlen = 500
