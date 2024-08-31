@@ -40,4 +40,7 @@ lvim.keys.normal_mode["<C-S>"] = ":w<CR>"
 lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<CR>"
 lvim.keys.insert_mode["<C-S>"] = "<Esc>:w<CR>"
 
+-- Ctrl + Backspace
+lvim.keys.insert_mode["<C-BS>"] = "<C-W>"
+
 -- vim.opt.timeoutlen = 500
