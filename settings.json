@@ -6,16 +6,14 @@
     "[python]": {
         "editor.formatOnType": true
     },
-    "workbench.iconTheme": "Monokai Classic Icons",
+    "editor.fontFamily": "'Fira Code', fira-code-nerd, FiraCode Nerd Font, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
     "vim.insertModeKeyBindings": [
 
-        //Change <Esc> to jj and JJ
+        //Change <Esc> to jj 
         {
             "before": ["j", "j"],
-            "after": ["<Esc>"]
-        }  
-        {
-            "before": ["J", "J"],
             "after": ["<Esc>"]
         }  
     ],
@@ -31,7 +29,7 @@
         },
         {
         "before": ["o","o"],
-        "after": ["A"]
+        "after": ["o"]
         },
 
         //Create a tab
@@ -82,8 +80,44 @@
   "vim.timeout": 500,
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
+    "<C-p>": false,
+    "<C-d>": false,
+    "<C-c>": false
   },
     "redhat.telemetry.enabled": true,
-    "workbench.colorTheme": "Bearded Theme HC Brewing Storm"
+    "files.associations": {
+        "*.tsx": "typescriptreact"
+    },
+    "editor.codeActionsOnSave": {
+
+
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "editor.indentSize": "tabSize",
+    "workbench.iconTheme": "Monokai Classic Icons",
+    "vim.commandLineModeKeyBindings": [
+
+    ],
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": ["#181616", "#FFFFFF"],
+    "vim.statusBarColors.insert": "#184364",
+    "vim.statusBarColors.visual": "#760000",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.commandlineinprogress": "#007ACC",
+    "vim.statusBarColors.searchinprogressmode": "#007ACC",
+    "vim.statusBarColors.easymotionmode": "#007ACC",
+    "vim.statusBarColors.easymotioninputmode": "#007ACC",
+    "vim.statusBarColors.surroundinputmode": "#007ACC",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#184364",
+        "statusBar.noFolderBackground": "#184364",
+        "statusBar.debuggingBackground": "#184364",
+        "statusBar.foreground": "#FFFFFF",
+        "statusBar.debuggingForeground": "#FFFFFF"
+    },
 }
