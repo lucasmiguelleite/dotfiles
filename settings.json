@@ -10,12 +10,28 @@
     "editor.fontLigatures": true,
     "editor.tabSize": 2,
     "vim.insertModeKeyBindings": [
-
-        //Change <Esc> to jj 
+        //Change <Esc> to <Ctrl> + [
         {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
-        }  
+            "before": [
+                "<Ctrl>",
+                "["
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        //Change <Esc> to <Ctrl> + [
+        {
+            "before": [
+                "<Ctrl>",
+                "["
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        } 
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         //Adding an empty line below, above and below with insert
