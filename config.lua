@@ -30,9 +30,9 @@ lvim.keys.normal_mode["tt"] = ":q<CR>"
 -- Call command shortcut
 lvim.keys.normal_mode["tc"] = ":!"
 
--- Change <Esc> to jj
-lvim.keys.insert_mode["jj"] = "<Esc>"
-lvim.keys.insert_mode["JJ"] = "<Esc>"
+-- Change <Esc> to Ctrl + [
+lvim.keys.insert_mode["<C-[>"] = "<Esc>"
+lvim.keys.visual_mode["<C-[>"] = "<Esc>"
 
 -- Save the file
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
