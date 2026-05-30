@@ -12,15 +12,23 @@ for file in home/.*; do
 done
 
 # config/* → ~/.config/*
-for dir in config/*/; do
-  target="$HOME/.config/$(basename "$dir")"
-  mkdir -p "$target"
-  for file in "$dir"*; do
-    [ -e "$file" ] || continue
-    dest="$target/$(basename "$file")"
-    ln -sfn "$DOTFILES/$file" "$dest"
-    echo "linked $file → $dest"
+link_dir() {
+  local src="$1" dest="$2"
+  mkdir -p "$dest"
+  for item in "$src"/*; do
+    [ -e "$item" ] || continue
+    name="$(basename "$item")"
+    if [ -d "$item" ]; then
+      link_dir "$item" "$dest/$name"
+    else
+      ln -sfn "$DOTFILES/$item" "$dest/$name"
+      echo "linked $item → $dest/$name"
+    fi
   done
+}
+
+for dir in config/*/; do
+  link_dir "$dir" "$HOME/.config/$(basename "$dir")"
 done
 
 # zsh secrets
