@@ -6,7 +6,7 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 # home/ → ~/
 for file in home/.*; do
   [ -f "$file" ] || continue
-  cp "$file" "$HOME/$(basename "$file")"
+  cp -f "$file" "$HOME/$(basename "$file")"
   echo "copied $(basename "$file") → ~/$(basename "$file")"
 done
 
@@ -20,7 +20,7 @@ copy_dir() {
     if [ -d "$item" ]; then
       copy_dir "$item" "$dest/$name"
     else
-      cp "$item" "$dest/$name"
+      cp -f "$item" "$dest/$name"
       echo "copied $name → $dest/$name"
     fi
   done
