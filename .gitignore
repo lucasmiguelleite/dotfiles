@@ -1,2 +1,4 @@
 secrets
 *.secret
+settings.json
+credentials.json

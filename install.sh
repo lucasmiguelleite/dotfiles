@@ -37,4 +37,20 @@ if [ ! -f "$HOME/.config/zsh/secrets" ]; then
   echo "created ~/.config/zsh/secrets — fill in your values"
 fi
 
+# claude code → ~/.claude/
+if [ -d "$DOTFILES/config/claude" ]; then
+  mkdir -p "$HOME/.claude"
+  for file in "$DOTFILES"/config/claude/*; do
+    [ -e "$file" ] || continue
+    name="$(basename "$file")"
+    [[ "$name" == *.example* ]] && continue
+    ln -sfn "$file" "$HOME/.claude/$name"
+    echo "linked $file → ~/.claude/$name"
+  done
+  if [ ! -f "$HOME/.claude/settings.json" ]; then
+    cp "$DOTFILES/config/claude/settings.example.json" "$HOME/.claude/settings.json"
+    echo "created ~/.claude/settings.json — fill in your tokens"
+  fi
+fi
+
 echo "done! restart your shell."
