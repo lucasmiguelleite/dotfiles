@@ -12,16 +12,10 @@ if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew install git zoxide atuin eza bat mise \
+brew install git zoxide atuin eza bat mise claude codex \
   zsh-history-substring-search zsh-autosuggestions \
   powerlevel10k neovim
 
 brew install --cask font-meslo-lg-nerd-font
-
-echo "Installing Claude Code..."
-npm install -g @anthropic-ai/claude-code
-
-echo "Installing Codex..."
-npm install -g @openai/codex
 
 echo "Done! Now run ./install.sh to link dotfiles."
