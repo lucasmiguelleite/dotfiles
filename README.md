@@ -13,7 +13,9 @@ Personal configuration files for macOS.
 └── config/
     ├── zsh/              → ~/.config/zsh/
     ├── nvim/             → ~/.config/nvim/
-    └── Code/User/        → ~/.config/Code/User/
+    ├── Code/User/        → ~/.config/Code/User/
+    ├── zed/              → ~/.config/zed/
+    └── claude/           → ~/.claude/
 ```
 
 ## Setup
@@ -29,7 +31,8 @@ cd dotfiles
 
 - **Shell**: zsh + powerlevel10k
 - **History**: atuin + zsh-history-substring-search + zsh-autosuggestions
-- **Navigation**: zoxide + exa
-- **Editor**: neovim (LazyVim)
+- **Navigation**: zoxide + eza
+- **Editor**: neovim (LazyVim) + Zed
 - **Version manager**: mise
 - **Terminal**: VS Code + vscode-neovim
+- **AI**: Claude Code

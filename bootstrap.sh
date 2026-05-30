@@ -18,4 +18,7 @@ brew install git zoxide atuin eza bat mise \
 
 brew install --cask font-meslo-lg-nerd-font
 
+echo "Installing Claude Code..."
+npm install -g @anthropic-ai/claude-code
+
 echo "Done! Now run ./install.sh to link dotfiles."
