@@ -22,10 +22,13 @@ Personal configuration files for macOS.
 ## Setup
 
 ```sh
+# One-liner (bootstrap + install)
+bash <(curl -fsSL https://raw.githubusercontent.com/lucasmiguelleite/dotfiles/main/bootstrap.sh)
+
+# Or manually:
 git clone https://github.com/lucasmiguelleite/dotfiles.git
 cd dotfiles
-./bootstrap.sh    # install dependencies
-./install.sh      # link dotfiles
+./bootstrap.sh
 ```
 
 ## Programs
