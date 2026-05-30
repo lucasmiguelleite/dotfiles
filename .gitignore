@@ -2,3 +2,4 @@ secrets
 *.secret
 settings.json
 credentials.json
+auth.json

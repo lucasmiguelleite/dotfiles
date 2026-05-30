@@ -53,4 +53,9 @@ if [ -d "$DOTFILES/config/claude" ]; then
   fi
 fi
 
+# codex → ~/.codex/
+if [ -d "$DOTFILES/config/codex" ]; then
+  link_dir "$DOTFILES/config/codex" "$HOME/.codex"
+fi
+
 echo "done! restart your shell."

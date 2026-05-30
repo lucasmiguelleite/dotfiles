@@ -15,7 +15,8 @@ Personal configuration files for macOS.
     ├── nvim/             → ~/.config/nvim/
     ├── Code/User/        → ~/.config/Code/User/
     ├── zed/              → ~/.config/zed/
-    └── claude/           → ~/.claude/
+    ├── claude/           → ~/.claude/
+    └── codex/            → ~/.codex/
 ```
 
 ## Setup
@@ -35,4 +36,4 @@ cd dotfiles
 - **Editor**: neovim (LazyVim) + Zed
 - **Version manager**: mise
 - **Terminal**: VS Code + vscode-neovim
-- **AI**: Claude Code
+- **AI**: Claude Code + Codex

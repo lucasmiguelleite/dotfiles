@@ -1,0 +1,11 @@
+[projects."/Users/lucasleite/Projects/youtube-downloader"]
+trust_level = "trusted"
+
+[projects."/Users/lucasleite/SENAI/404NotFound"]
+trust_level = "trusted"
+
+[projects."/Users/lucasleite/Projects/tic-tac-toe_next"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
