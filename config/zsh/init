@@ -32,6 +32,9 @@ bindkey '^[[B' history-substring-search-down
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(mise activate zsh)"
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/lucasleite/.docker/completions $fpath)
 autoload -Uz compinit
@@ -47,6 +50,5 @@ export PATH="$PATH:/Users/lucasleite/.dotnet/tools"
 EOF
 
 # Android SDK environment variables
-export ANDROID_HOME=$HOME/Library/Android/sdk 
-export PATH=$PATH:$ANDROID_HOME/emulator
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
