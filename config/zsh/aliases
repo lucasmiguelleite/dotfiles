@@ -5,7 +5,7 @@
 
 alias g='nocorrect git'
 
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias bat='bat --style=auto'
 alias ll="ls -la"
 
