@@ -1,0 +1,15 @@
+[user]
+	name = Lucas Miguel Leite
+	email = lucasleite.miguel10@gmail.com
+[alias]
+	a = add
+	ps = push
+	pl = pull
+	l = log
+	c = commit -m
+	ca = commit --amend -m
+	can = commit --amend --no-edit
+	s = status
+	co = checkout
+	b = branch
+	d = diff
