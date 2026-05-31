@@ -40,15 +40,3 @@ fpath=(/Users/lucasleite/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
-
-source $HOME/.atuin/bin/env
-export PATH="$HOME/.atuin/bin:$PATH"
-
-cat << \EOF >> ~/.zprofile
-# Add .NET Core SDK tools
-export PATH="$PATH:/Users/lucasleite/.dotnet/tools"
-EOF
-
-# Android SDK environment variables
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
