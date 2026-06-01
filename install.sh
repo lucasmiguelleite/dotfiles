@@ -8,6 +8,7 @@ for file in home/.*; do
   [ -f "$file" ] || continue
   name="$(basename "$file")"
   [ "$name" = ".zshrc" ] && continue
+  rm -f "$HOME/$name"
   cp -f "$file" "$HOME/$name" 2>/dev/null || true
   echo "copied $name → ~/$name"
 done
@@ -22,6 +23,7 @@ copy_dir() {
     if [ -d "$item" ]; then
       copy_dir "$item" "$dest/$name"
     else
+      rm -f "$dest/$name"
       cp -f "$item" "$dest/$name" 2>/dev/null || true
       echo "copied $name → $dest/$name"
     fi
