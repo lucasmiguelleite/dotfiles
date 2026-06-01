@@ -6,12 +6,17 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
-DOTFILES="$HOME/.local/share/dotfiles"
+DOTFILES="/tmp/dotfiles"
 
 # Clone repo if running via curl (no install.sh found locally)
 if [ ! -f "$(dirname "$0")/install.sh" ]; then
-  echo "Cloning dotfiles..."
-  git clone https://github.com/lucasmiguelleite/dotfiles.git "$DOTFILES"
+  if [ -d "$DOTFILES" ]; then
+    echo "Updating dotfiles..."
+    git -C "$DOTFILES" pull
+  else
+    echo "Cloning dotfiles..."
+    git clone https://github.com/lucasmiguelleite/dotfiles.git "$DOTFILES"
+  fi
   cd "$DOTFILES"
 else
   DOTFILES="$(cd "$(dirname "$0")" && pwd)"
