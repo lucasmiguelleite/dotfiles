@@ -10,16 +10,16 @@ Personal configuration files for macOS.
 ├── home/
 │   ├── .gitconfig        → ~/.gitconfig (copy)
 │   └── .zshrc            → ~/.config/zsh/.zshrc (copy, then symlinked from ~/)
-└── config/
-    ├── zsh/              → ~/.config/zsh/ (copy)
-    ├── nvim/             → ~/.config/nvim/ (copy)
-    ├── Code/User/        → ~/.config/Code/User/ (copy)
-    ├── zed/              → ~/.config/zed/ (copy)
-    ├── claude/           → ~/.claude/ + ~/.config/claude/ (copy)
-    └── codex/            → ~/.codex/ (copy)
+├── config/               # → ~/.config/ (copy)
+│   ├── zsh/
+│   ├── nvim/
+│   ├── Code/User/
+│   └── zed/
+├── claude/               → ~/.claude/ (copy, not ~/.config/claude/)
+└── codex/                → ~/.codex/ (copy, not ~/.config/codex/)
 ```
 
-Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied only if they don't already exist. In `~/.config/claude/`, `settings.example.json` is renamed to `settings.json`.
+Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied only if they don't already exist. Claude Code and Codex configs live in `~/` (not `~/.config/`).
 
 ## Setup
 
