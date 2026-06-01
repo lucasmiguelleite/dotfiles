@@ -33,13 +33,7 @@ copy_dir() {
 for dir in config/*/; do
   name="$(basename "$dir")"
   case "$name" in
-    claude)
-      copy_dir "$dir" "$HOME/.claude"
-      copy_dir "$dir" "$HOME/.config/$name"
-      # rename example → real filename in ~/.config/claude/
-      [ -f "$HOME/.config/$name/settings.example.json" ] && \
-        mv "$HOME/.config/$name/settings.example.json" "$HOME/.config/$name/settings.json"
-      ;;
+    claude) copy_dir "$dir" "$HOME/.claude" ;;
     codex) copy_dir "$dir" "$HOME/.codex" ;;
     *)     copy_dir "$dir" "$HOME/.config/$name" ;;
   esac
