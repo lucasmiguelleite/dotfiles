@@ -6,18 +6,20 @@ Personal configuration files for macOS.
 
 ```
 ├── bootstrap.sh          # Install dependencies (macOS only)
-├── install.sh            # Symlink configs to home directory
+├── install.sh            # Copy configs to home directory
 ├── home/
-│   ├── .zshrc            → ~/.zshrc
-│   └── .gitconfig        → ~/.gitconfig
+│   ├── .gitconfig        → ~/.gitconfig (copy)
+│   └── .zshrc            → ~/.config/zsh/.zshrc (copy)
 └── config/
-    ├── zsh/              → ~/.config/zsh/
-    ├── nvim/             → ~/.config/nvim/
-    ├── Code/User/        → ~/.config/Code/User/
-    ├── zed/              → ~/.config/zed/
-    ├── claude/           → ~/.claude/
-    └── codex/            → ~/.codex/
+    ├── zsh/              → ~/.config/zsh/ (copy)
+    ├── nvim/             → ~/.config/nvim/ (copy)
+    ├── Code/User/        → ~/.config/Code/User/ (copy)
+    ├── zed/              → ~/.config/zed/ (copy)
+    ├── claude/           → ~/.claude/ (copy)
+    └── codex/            → ~/.codex/ (copy)
 ```
+
+Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied directly — no symlinks are used. Existing symlinks are removed before copying to prevent stale links.
 
 ## Setup
 
