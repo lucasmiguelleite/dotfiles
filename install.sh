@@ -3,11 +3,13 @@ set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
-# home/ → ~/
+# home/ → ~/ (skip .zshrc — handled below via symlink)
 for file in home/.*; do
   [ -f "$file" ] || continue
-  cp -f "$file" "$HOME/$(basename "$file")" 2>/dev/null || true
-  echo "copied $(basename "$file") → ~/$(basename "$file")"
+  name="$(basename "$file")"
+  [ "$name" = ".zshrc" ] && continue
+  cp -f "$file" "$HOME/$name" 2>/dev/null || true
+  echo "copied $name → ~/$name"
 done
 
 # config/* → ~/.config/*
@@ -34,6 +36,10 @@ for dir in config/*/; do
     *)     copy_dir "$dir" "$HOME/.config/$name" ;;
   esac
 done
+
+# ~/.zshrc symlink → ~/.config/zsh/.zshrc
+ln -sf "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
+echo "linked ~/.zshrc → ~/.config/zsh/.zshrc"
 
 # zsh secrets
 if [ ! -f "$HOME/.config/zsh/secrets" ]; then
