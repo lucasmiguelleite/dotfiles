@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ln -sf ~/.config/zsh/.zshrc ~/.zshrc)",
+      "Bash(git *)"
+    ]
+  }
+}

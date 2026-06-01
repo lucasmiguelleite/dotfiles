@@ -47,14 +47,22 @@ fi
 
 # claude code settings (ask before overwriting)
 if [ -f "$HOME/.claude/settings.json" ]; then
-  read -p "Overwrite ~/.claude/settings.json with dotfiles template? [y/N] " answer
-  [[ "$answer" =~ ^[Yy]$ ]] || echo "skipped ~/.claude/settings.json"
+  read -p "Overwrite ~/.claude/settings.json? [y/N] " answer
   if [[ "$answer" =~ ^[Yy]$ ]]; then
-    cp "$DOTFILES/config/claude/settings.json" "$HOME/.claude/settings.json"
-    echo "copied settings.json → ~/.claude/settings.json"
+    echo "1) Anthropic (official)"
+    echo "2) Z.ai"
+    read -p "Choose provider: [1/2] " provider
+    case "$provider" in
+      2) cp "$DOTFILES/config/claude/settings.zai.json" "$HOME/.claude/settings.json"
+         echo "copied settings.zai.json → ~/.claude/settings.json" ;;
+      *) cp "$DOTFILES/config/claude/settings.anthropic.json" "$HOME/.claude/settings.json"
+         echo "copied settings.anthropic.json → ~/.claude/settings.json" ;;
+    esac
+  else
+    echo "skipped ~/.claude/settings.json"
   fi
 else
-  cp "$DOTFILES/config/claude/settings.json" "$HOME/.claude/settings.json"
+  cp "$DOTFILES/config/claude/settings.anthropic.json" "$HOME/.claude/settings.json"
   echo "created ~/.claude/settings.json — fill in your tokens"
 fi
 
