@@ -45,9 +45,16 @@ if [ ! -f "$HOME/.config/zsh/secrets" ]; then
   echo "created ~/.config/zsh/secrets — fill in your values"
 fi
 
-# claude code settings
-if [ ! -f "$HOME/.claude/settings.json" ]; then
-  cp "$DOTFILES/config/claude/settings.example.json" "$HOME/.claude/settings.json"
+# claude code settings (ask before overwriting)
+if [ -f "$HOME/.claude/settings.json" ]; then
+  read -p "Overwrite ~/.claude/settings.json with dotfiles template? [y/N] " answer
+  [[ "$answer" =~ ^[Yy]$ ]] || echo "skipped ~/.claude/settings.json"
+  if [[ "$answer" =~ ^[Yy]$ ]]; then
+    cp "$DOTFILES/config/claude/settings.json" "$HOME/.claude/settings.json"
+    echo "copied settings.json → ~/.claude/settings.json"
+  fi
+else
+  cp "$DOTFILES/config/claude/settings.json" "$HOME/.claude/settings.json"
   echo "created ~/.claude/settings.json — fill in your tokens"
 fi
 
