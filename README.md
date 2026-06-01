@@ -7,19 +7,17 @@ Personal configuration files for macOS.
 ```
 ├── bootstrap.sh          # Install dependencies (macOS only)
 ├── install.sh            # Copy configs to home directory
-├── home/
+├── config/
 │   ├── .gitconfig        → ~/.gitconfig (copy)
-│   └── .zshrc            → ~/.config/zsh/.zshrc (copy, then symlinked from ~/)
-├── config/               # → ~/.config/ (copy)
-│   ├── zsh/
-│   ├── nvim/
-│   ├── Code/User/
-│   └── zed/
-├── claude/               → ~/.claude/ (copy, not ~/.config/claude/)
-└── codex/                → ~/.codex/ (copy, not ~/.config/codex/)
+│   ├── zsh/              → ~/.config/zsh/ (copy)
+│   ├── nvim/             → ~/.config/nvim/ (copy)
+│   ├── Code/User/        → ~/.config/Code/User/ (copy)
+│   ├── zed/              → ~/.config/zed/ (copy)
+│   ├── claude/           → ~/.claude/ (copy)
+│   └── codex/            → ~/.codex/ (copy)
 ```
 
-Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied only if they don't already exist. Claude Code and Codex configs live in `~/` (not `~/.config/`).
+Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied only if they don't already exist.
 
 ## Setup
 

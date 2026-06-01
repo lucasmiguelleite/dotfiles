@@ -3,17 +3,7 @@ set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
-# home/ → ~/ (skip .zshrc — handled below via symlink)
-for file in home/.*; do
-  [ -f "$file" ] || continue
-  name="$(basename "$file")"
-  [ "$name" = ".zshrc" ] && continue
-  [ -f "$HOME/$name" ] && continue
-  cp "$file" "$HOME/$name"
-  echo "copied $name → ~/$name"
-done
-
-# config/* → ~/.config/*
+# config/* → destinations
 copy_dir() {
   local src="$1" dest="$2"
   mkdir -p "$dest"
@@ -34,10 +24,16 @@ for dir in config/*/; do
   name="$(basename "$dir")"
   case "$name" in
     claude) copy_dir "$dir" "$HOME/.claude" ;;
-    codex) copy_dir "$dir" "$HOME/.codex" ;;
-    *)     copy_dir "$dir" "$HOME/.config/$name" ;;
+    codex)  copy_dir "$dir" "$HOME/.codex" ;;
+    *)      copy_dir "$dir" "$HOME/.config/$name" ;;
   esac
 done
+
+# .gitconfig → ~/ (only if doesn't exist)
+[ -f "$HOME/.gitconfig" ] || {
+  cp "$DOTFILES/config/.gitconfig" "$HOME/.gitconfig"
+  echo "copied .gitconfig → ~/.gitconfig"
+}
 
 # ~/.zshrc symlink → ~/.config/zsh/.zshrc
 ln -sf "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
@@ -53,10 +49,6 @@ fi
 if [ ! -f "$HOME/.claude/settings.json" ]; then
   cp "$DOTFILES/config/claude/settings.example.json" "$HOME/.claude/settings.json"
   echo "created ~/.claude/settings.json — fill in your tokens"
-fi
-
-if [ -f "$HOME/.config/claude/settings.json" ]; then
-  echo "⚠️  customize ~/.config/claude/settings.json with your credentials"
 fi
 
 echo "done! restart your shell."
