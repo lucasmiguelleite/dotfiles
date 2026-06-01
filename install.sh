@@ -20,10 +20,29 @@ copy_dir() {
   done
 }
 
+copy_dir_exclude() {
+  local src="$1" dest="$2" exclude="$3"
+  mkdir -p "$dest"
+  for item in "$src"/*; do
+    [ -e "$item" ] || continue
+    name="$(basename "$item")"
+    [[ "$name" == $exclude ]] && continue
+    if [ -d "$item" ]; then
+      copy_dir "$item" "$dest/$name"
+    else
+      [ -f "$dest/$name" ] && continue
+      cp "$item" "$dest/$name"
+      echo "copied $name → $dest/$name"
+    fi
+  done
+}
+
 for dir in config/*/; do
   name="$(basename "$dir")"
   case "$name" in
-    claude) copy_dir "$dir" "$HOME/.claude" ;;
+    claude)
+      copy_dir_exclude "$dir" "$HOME/.claude" "settings.*.json"
+      ;;
     codex)  copy_dir "$dir" "$HOME/.codex" ;;
     *)      copy_dir "$dir" "$HOME/.config/$name" ;;
   esac
