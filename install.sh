@@ -61,4 +61,8 @@ if [ ! -f "$HOME/.claude/settings.json" ]; then
   echo "created ~/.claude/settings.json — fill in your tokens"
 fi
 
+if [ -f "$HOME/.config/claude/settings.json" ]; then
+  echo "⚠️  customize ~/.config/claude/settings.json with your credentials"
+fi
+
 echo "done! restart your shell."

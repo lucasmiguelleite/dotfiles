@@ -9,17 +9,17 @@ Personal configuration files for macOS.
 ├── install.sh            # Copy configs to home directory
 ├── home/
 │   ├── .gitconfig        → ~/.gitconfig (copy)
-│   └── .zshrc            → ~/.config/zsh/.zshrc (copy)
+│   └── .zshrc            → ~/.config/zsh/.zshrc (copy, then symlinked from ~/)
 └── config/
     ├── zsh/              → ~/.config/zsh/ (copy)
     ├── nvim/             → ~/.config/nvim/ (copy)
     ├── Code/User/        → ~/.config/Code/User/ (copy)
     ├── zed/              → ~/.config/zed/ (copy)
-    ├── claude/           → ~/.claude/ (copy)
+    ├── claude/           → ~/.claude/ + ~/.config/claude/ (copy)
     └── codex/            → ~/.codex/ (copy)
 ```
 
-Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied directly — no symlinks are used. Existing symlinks are removed before copying to prevent stale links.
+Only `~/.zshrc` is a symlink pointing to `~/.config/zsh/.zshrc`. All other files are copied only if they don't already exist. In `~/.config/claude/`, `settings.example.json` is renamed to `settings.json`.
 
 ## Setup
 
